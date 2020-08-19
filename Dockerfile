@@ -15,10 +15,24 @@ RUN apt-get install -y --no-install-recommends \
         git \
         gdb \
         vim \
+        tmux \
+        curl \
+        wget \
+        xclip \
+        xsel \
         more \
         less \
         lsb-core \
         apt-utils
+
+# ==================================================================
+# Setup tmux and vim
+# ------------------------------------------------------------------
+RUN curl -o ~/.tmux.conf https://raw.githubusercontent.com/BruceChanJianLe/TMUX_Setup/master/.tmux.conf && \
+        curl https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux > ~/.bash_completion && \
+        echo "source ~/.bash_completion" >> ~/.bashrc && \
+        curl -o ~/.vimrc https://raw.githubusercontent.com/BruceChanJianLe/vim/master/.vimrc
+
 
 # ==================================================================
 # config & cleanup
