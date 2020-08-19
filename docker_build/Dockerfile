@@ -1,42 +1,29 @@
 FROM ubuntu:16.04
 
-# ==================================================================
+LABEL maintainer="brucechanjianle <jianle001@e.ntu.edu.sg>"
+
+# Replace shell with bash
+# RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
 # Update and upgrade
-# ------------------------------------------------------------------
-RUN apt-get update -y && \
-        apt-get upgrade -y
+RUN apt-get update -y \
+        && apt-get upgrade -y \
+        && apt-get -y autoclean
 
-# ==================================================================
 # Common dependencies
-# ------------------------------------------------------------------
-RUN apt-get install -y --no-install-recommends \
-        python3-dev \
-        python3-pip \
-        git \
-        gdb \
-        vim \
-        tmux \
-        curl \
-        wget \
-        xclip \
-        xsel \
-        more \
-        less \
-        lsb-core \
-        apt-utils
+RUN apt-get update -y && apt-get install -y vim
+# python3-dev python3-pip \
+        # git gdb vim tmux curl wget \
+        # xclip xsel more less lsb-core apt-utils
 
-# ==================================================================
 # Setup tmux and vim
-# ------------------------------------------------------------------
-RUN curl -o ~/.tmux.conf https://raw.githubusercontent.com/BruceChanJianLe/TMUX_Setup/master/.tmux.conf && \
-        curl https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux > ~/.bash_completion && \
-        echo "source ~/.bash_completion" >> ~/.bashrc && \
-        curl -o ~/.vimrc https://raw.githubusercontent.com/BruceChanJianLe/vim/master/.vimrc
+# RUN curl -o ~/.tmux.conf https://raw.githubusercontent.com/BruceChanJianLe/TMUX_Setup/master/.tmux.conf \
+#         && curl https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux > ~/.bash_completion \
+#         && echo "source ~/.bash_completion" >> ~/.bashrc \
+#         && curl -o ~/.vimrc https://raw.githubusercontent.com/BruceChanJianLe/vim/master/.vimrc
 
 
-# ==================================================================
 # config & cleanup
-# ------------------------------------------------------------------
 RUN apt-get autoclean -y && \
         apt-get autoremove -y && \
         rm -rf /var/lib/apt/lists/* /tmp/* ~/*
