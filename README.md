@@ -7,7 +7,7 @@ This repository stores the information regarding setting up basic Ubuntu to be u
 Build the dockerfile inside the build directory.  
 ```bash
 cd docker_build
-docker build --tag="ubuntu16.04:basic" .
+docker build --tag="ubuntu18.04:basic" .
 ```
 
 ## Viewing Docker images
@@ -17,20 +17,20 @@ Run the following command to see if the image is correctly built.
 docker images
 # Output
 # REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-# ubuntu16.04         basic               6a8f47b57aa6        About an hour ago   586MB
-# ubuntu              16.04               4b22027ede29        11 hours ago        127MB
+# ubuntu18.04         basic               6a8f47b57aa6        About an hour ago   586MB
+# ubuntu              18.04               4b22027ede29        11 hours ago        127MB
 ```
 
 ## Starting the Container
 
 Run the `start_docker_container.bash` inside the `script` directory.  
-It will automatically start the `ubuntu16.04:basic` image container.  
+It will automatically start the `ubuntu18.04:basic` image container.  
 Please provide a name to the newly started container.  
 ```bash
 cd script
 ./start_docker_container.bash
 # Provide a name
-# Starting container image ubuntu16.04:basic
+# Starting container image ubuntu18.04:basic
 # Container name: my_container
 ```
 
