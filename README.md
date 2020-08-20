@@ -32,7 +32,6 @@ cd script
 # Provide a name
 # Starting container image ubuntu16.04:basic
 # Container name: my_container
-# Container name to be connected:my_container
 ```
 
 ## Connecting to the Container
@@ -43,4 +42,13 @@ Please provide the name of container you wish to connect to.
 cd script
 ./connect_docker_container.bash
 # Provide a name
-# 
+# Container name to be connected: my_container
+```
+
+## A Word from Author
+
+Enjoy your Ubuntu in a docker container. Please look at the branch for your Ubuntu Version you wish to use.  
+
+## Reference
+
+- [link1](https://github.com/udacimak/udacimak) [link2](https://github.com/saurabverma/dockerfiles)
