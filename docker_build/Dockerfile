@@ -25,7 +25,17 @@ RUN apt-get update -y && apt-get install -y vim \
 RUN curl -o ~/.tmux.conf https://raw.githubusercontent.com/BruceChanJianLe/TMUX_Setup/master/.tmux.conf \
         && curl https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux > ~/.bash_completion \
         && echo "source ~/.bash_completion" >> ~/.bashrc \
-        && curl -o ~/.vimrc https://raw.githubusercontent.com/BruceChanJianLe/vim/master/.vimrc
+        && curl -o ~/.vimrc https://raw.githubusercontent.com/BruceChanJianLe/vim/master/.vimrc \
+        && git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell \
+        && echo -e "\n# Base16 Shell" >> ~/.bashrc \
+        && echo "BASE16_SHELL=\"\$HOME/.config/base16-shell/\"" >> ~/.bashrc \
+        && echo "[ -n \"\$PS1\" ] && \\"  >> ~/.bashrc \
+        && echo "    [ -s \"\$BASE16_SHELL/profile_helper.sh\" ] && \\"  >> ~/.bashrc \
+        && echo "        eval \"\$(\"\$BASE16_SHELL/profile_helper.sh\")\"" >> ~/.bashrc
+
+# Setup color prompt and git
+RUN echo -e "\nparse_git_branch() {\n git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'\n}" >> ~/.bashrc \
+        && echo -e "\n PS1='🐳\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]$(parse_git_branch)\[\033[00m\]\$ '" >> ~/.bashrc
 
 # config & cleanup
 RUN apt-get autoclean -y && \
