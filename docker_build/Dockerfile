@@ -47,16 +47,3 @@ RUN apt-get autoclean -y && \
 WORKDIR /root/
 
 ENTRYPOINT ["bash"]
-
-# # Build image using (inside the directory with Dockerfile):
-# docker build --tag="ubuntu_16.04:map" .
-
-# # Create container using (to be auto-removed on stop):
-# # NOTE: See 'note' file for specific details
-# docker run -d -it --rm -v /<host_parent_folder>:/code/ --net=host --name map_container ubuntu_16.04:map
-
-# # Run container using (in multiple terminals, as needed):
-# docker exec -it map_container bash
-
-# # Stop container using:
-# docker stop map_container
