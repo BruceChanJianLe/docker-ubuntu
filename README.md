@@ -51,4 +51,4 @@ Enjoy your Ubuntu in a docker container. Please look at the branch for your Ubun
 
 ## Reference
 
-- [link1](https://github.com/udacimak/udacimak) [link2](https://github.com/saurabverma/dockerfiles)
+- [link1](https://github.com/udacimak/udacimak) [link2](https://github.com/saurabverma/dockerfiles) [link3](https://stackoverflow.com/questions/33493456/docker-bash-prompt-does-not-display-color-output)
