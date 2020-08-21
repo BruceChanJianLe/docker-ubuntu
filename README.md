@@ -4,7 +4,7 @@ This repository stores the information regarding setting up basic Ubuntu to be u
 
 ## Building the Dockerfile
 
-Build the dockerfile inside the build directory.  
+Build the dockerfile inside the `docker_build` directory.  
 ```bash
 cd docker_build
 docker build --tag="ubuntu16.04:basic" .
@@ -23,7 +23,7 @@ docker images
 
 ## Starting the Container
 
-Run the `start_docker_container.bash` inside the `script` directory.  
+Run the `start_docker_container.bash` inside the `scripts` directory.  
 It will automatically start the `ubuntu16.04:basic` image container.  
 Please provide a name to the newly started container.  
 ```bash
