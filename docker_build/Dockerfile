@@ -20,7 +20,8 @@ RUN apt-get update -y && apt-get install -y vim \
         python3-dev \
         python3-pip \
         apt-utils \
-        bash-completion
+        bash-completion \
+        sudo
 
 # Setup tmux and vim
 RUN curl -o ~/.tmux.conf https://raw.githubusercontent.com/BruceChanJianLe/TMUX_Setup/master/.tmux.conf \
