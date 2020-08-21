@@ -27,7 +27,7 @@ Run the `start_docker_container.bash` inside the `scripts` directory.
 It will automatically start the `ubuntu16.04:basic` image container.  
 Please provide a name to the newly started container.  
 ```bash
-cd script
+cd scripts
 ./start_docker_container.bash
 # Provide a name
 # Starting container image ubuntu16.04:basic
@@ -36,10 +36,10 @@ cd script
 
 ## Connecting to the Container
 
-Run the `connect_docker_container.bash` inside the `script` directory.  
+Run the `connect_docker_container.bash` inside the `scripts` directory.  
 Please provide the name of container you wish to connect to.  
 ```bash
-cd script
+cd scripts
 ./connect_docker_container.bash
 # Provide a name
 # Container name to be connected: my_container
