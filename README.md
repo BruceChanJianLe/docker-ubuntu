@@ -1,4 +1,4 @@
-# Docker Ubuntu
+# Docker Ubuntu 18.04
 
 This repository stores the information regarding setting up basic Ubuntu to be used in docker.
 
