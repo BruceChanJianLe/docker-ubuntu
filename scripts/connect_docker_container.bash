@@ -1,5 +1,5 @@
 #!/bin/bash
-# This script connect this terminal to specific docker container
+# This script connect this terminal to docker container
 
 # Display all container's name
 echo "List of containers:"
