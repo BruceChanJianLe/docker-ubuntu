@@ -43,7 +43,7 @@ RUN echo -e "\nparse_git_branch() {\n git branch 2> /dev/null | sed -e '/^[^*]/d
 # config & cleanup
 RUN apt-get autoclean -y && \
         apt-get autoremove -y && \
-        rm -rf /var/lib/apt/lists/* /tmp/* ~/*
+        rm -rf /var/lib/apt/lists/* /tmp/*
 
 WORKDIR /root/docker_mount/
 
