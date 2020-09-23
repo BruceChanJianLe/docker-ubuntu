@@ -7,7 +7,7 @@ This repository stores the information regarding setting up basic Ubuntu to be u
 Build the dockerfile inside the `docker_build` directory.  
 ```bash
 cd docker_build
-docker build --tag="ubuntu16.04:basic" .
+docker build -t ubuntu16.04:basic .
 ```
 
 ## Viewing Docker images
