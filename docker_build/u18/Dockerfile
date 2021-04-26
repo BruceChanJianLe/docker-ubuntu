@@ -77,16 +77,17 @@ RUN curl -o ~/.tmux.conf https://raw.githubusercontent.com/BruceChanJianLe/TMUX_
 RUN mkdir -p ~/.vim/undodir \
         && curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+RUN vim +PlugInstall +qa
+
 # Setup color prompt and git
 RUN echo -e "\nparse_git_branch() {\n git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'\n}" >> ~/.bashrc \
         && echo -e "\nPS1='🐳\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]\$(parse_git_branch)\[\033[00m\]\$ '" >> ~/.bashrc \
         && sed -ie 's|#    . /etc/bash_completion|. /etc/bash_completion|g' ~/.bashrc 
 
 # config & cleanup
-RUN apt-get autoclean -y && \
-        apt-get autoremove -y && \
-        rm -rf /var/lib/apt/lists/* /tmp/*
+RUN sudo apt-get autoclean -y && \
+        sudo apt-get autoremove -y && \
+        sudo rm -rf /var/lib/apt/lists/* /tmp/*
 
-WORKDIR /root/docker_mount/
-
-ENTRYPOINT ["bash"]
+# Run colorful prompt
+CMD ["/bin/bash", "-l" ]
